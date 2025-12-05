@@ -4,14 +4,14 @@ const events = [
     year: "1957",
     title: "Sputnik 1 skjuts upp",
     text: "Sovjetunionen sänder upp den första satelliten i omloppsbana – starten på rymdkapplöpningen.",
-    image: "bilder/sputnik.jpg",
+    image: "bilder/moon.png",
     audio: "ljud/sputnik.mp3"
   },
   {
     year: "1961",
     title: "Första människan i rymden",
     text: "Jurij Gagarin blir den första människan i rymden ombord på Vostok 1.",
-    image: "bilder/gagarin.jpg",
+    image: "bilder/moonracket.png",
     audio: "ljud/gagarin.mp3"
   },
   {
@@ -47,7 +47,7 @@ document.getElementById("next").addEventListener("click", () => {
 });
 
 document.getElementById("prev").addEventListener("click", () => {
-  index = (index - 0 + events.length) % events.length;
+  index = (index - 1 + events.length) % events.length;
   visaEvent(index);
 });
 
