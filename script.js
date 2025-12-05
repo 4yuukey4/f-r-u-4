@@ -7,13 +7,15 @@ const events = [
     image: "bilder/moon.png",
     audio: "ljud/sputnik.mp3"
   },
-  {
-    year: "1961",
-    title: "Första människan i rymden",
-    text: "Jurij Gagarin blir den första människan i rymden ombord på Vostok 1.",
-    image: "bilder/moonracket.png",
-    audio: "ljud/gagarin.mp3"
-  },
+ {
+  year: "1961",
+  title: "Första människan i rymden",
+  text: "Jurij Gagarin blir den första människan i rymden ombord på Vostok 1.",
+  image: "bilder/stillracket.png",
+  gif:   "bilder/hi.gif",      
+  audio: "ljud/gagarin.mp3"
+}
+,
   {
     year: "1969",
     title: "Månlandningen",
@@ -31,7 +33,7 @@ function visaEvent(i) {
   timeline.innerHTML = `
     <div class="event">
       <h2>${e.year} – ${e.title}</h2>
-      <img src="${e.image}" alt="${e.title}">
+      <img id="eventImage" src="${e.image}" alt="${e.title}">
       <p>${e.text}</p>
       <audio id="audio" controls autoplay>
         <source src="${e.audio}" type="audio/mpeg">
@@ -39,7 +41,17 @@ function visaEvent(i) {
       </audio>
     </div>
   `;
+
+  // Klick för att starta GIF
+  const img = document.getElementById("eventImage");
+
+  img.addEventListener("click", () => {
+    if (e.gif) {
+      img.src = e.gif;
+    }
+  });
 }
+
 
 document.getElementById("next").addEventListener("click", () => {
   index = (index + 1) % events.length;
